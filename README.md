@@ -1,4 +1,4 @@
-Temat 4: Platforma Kursów Online (E-learning)
+# Temat 4: Platforma Kursów Online (E-learning)
 
 Wykonujący:
 Bartosz Hauff
@@ -15,47 +15,32 @@ Kurs, Moduł, Lekcja, Postęp, PlatformaEdukacyjna
 - System śledzi postęp i blokuje kolejny moduł do czasu ukończenia poprzedniego
 - Po ukończeniu wszyskich modułów system generuje certyfikat
 
+## Opis
 
+Platforma kursów online ma obsługiwać system do E-learningu. Na platformie istnieją Użytkownicy (Wykładowca i Kursanci). Każda osoba posiada imię, nazwisko i numer identyfikacyjny. Każdy Kursant, ma okno startowe, na którym widoczne są Kursy, na które Kursant jest zapisany, oraz jaki jest jego Postęp w danym kursie. Ponadto Kursant widzi, jakie certyfikaty ukończonych Kursów posiada.
 
-Opis:
-Platforma kursów online ma obsługiwać system do E-learningu. Na platformie istnieją użytkownicy (Wykładowcy i Kursanci). Każda osoba posiada Imię i nazwisko i numer identyfikacyjny. Każdy Kursant ma podpięte konto , na którym rejestrowana jest ilość kursów, uczęszczanych przez kursanta i jaki jest jego postęp w danym kursie. Dodatkowo konto przechowuje informacje jakie Certyfikaty posiada kursant.
+W systemie znajdują się Kursy, które podzielone są na moduły, które podzielone są na poszczególne lekcje przygotowywane przez Wykładowcę, który ma pełen dostęp do tworzenie i manipulowania treściami w danym Kursie oraz do listy osób zapisanych na dany Kurs.
 
-W systemie znajdują się Kursy, które podzielone są na moduły , które podzielone są na poszczególne lekcje przygotowywane przez Wykładowce, który ma pełen dostęp do tworzenie i manipulowania treściami w danym kursie.
-
-Do każdego kursu Kursant zapisuje się samodzielnie i przechodzi przez lekcje w odpowiedniej kolejności, do czasu ukończenia danego modułu przez Kursanta system blokuje dostęp do innych modułów, dodatkowo system zapisuje , na jakim module aktualnie jest kursant.
+Do każdego Kursu Kursant zapisuje się samodzielnie i przechodzi przez lekcje w odpowiedniej kolejności. Do czasu ukończenia danego Modułu przez Kursanta system blokuje dostęp do innych Modułów, dodatkowo system zapisuje, na jakim Module aktualnie jest Kursant.
 
 Po ukończeniu wszystkich modułów w danym kursie Kursant otrzymuje certfikat ukończenia tego kursu.
 
+## User stories
 
+1. Jako Kursant chcę zapisać się na Kurs, aby móc się uczyć.
 
-User storires:
+2. Jako Kursant chcę otrzymać certyfikat, aby mieć potwierdzenie, że ukończyłem Kurs.
 
-1.
-Jako Kursant
-chcę zapisać się na kurs,
-aby móc się uczyć.
+3. Jako Wykładowca chcę utworzyć Kurs, aby Kursanci mogli się uczyć.
 
-2.
-Jako Kursant
-chcę otrzymać certyfikat,
-aby pokazać, że ukończyłem kurs.
+4. Jako Wykładowca chcę mieć możliwość sprawdzić listę zapisanych Kursantów, aby wiedzieć czy wszyscy się zapisali.
 
-3.
-Jako Wykładowca
-chcę utworzyć kurs,
-aby Kursanci mogli się uczyć.
+5. Jako Wykładowca chcę edytować Kursy, aby móc dodawać i usuwać Moduły oraz Lekcje.
 
-4.
-Jako Wykładowca
-chcę mieć możliwość sprawdzić postęp nauki Kursantów,
-aby wiedzieć jak im idzie.
+6. Jako System, chcę śledzić Postęp nauki Kursanta, aby weryfikować stan zaawansowania.
 
-5.
-Jako Wykładowca
-chcę edytować kursy,
-aby móc dodawać i usuwać lekcje.
+7. Jako System, chcę blokować Kursantowi dostęp do kolejnego Modułu przed zakończeniem kolejnego, aby wymusić systematyczną naukę.
 
-6.
-Jako Użytkownik
-chcę mieć możliwość zgłoszenia błędu strony,
-aby zabezpieczyć się przed szkoda wynikającymi nie z mojej winy.
+## Diagram klas
+
+![Diagram klas.jpg](Diagram%20klas.jpg)
