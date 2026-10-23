@@ -1,12 +1,17 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class Uzytkownik {
-    protected:
+    private:
         string imie;
         string nazwisko;
         int id;
+
+    public:
+        virtual ~Uzytkownik() = 0; // destruktor
 };
+inline Uzytkownik::~Uzytkownik() {}
 
 class Wykladowca : public Uzytkownik {
     public:
@@ -17,6 +22,10 @@ class Wykladowca : public Uzytkownik {
 };
 
 class Kursant : public Uzytkownik {
+    private:
+        vector<Kurs*> zapisane_kursy;
+        vector<Postep> postepy;
+
     public:
         void zapisNaKurs();
         void wyswietlDostepneKursy();
@@ -25,6 +34,10 @@ class Kursant : public Uzytkownik {
 };
 
 class PlatformaEdukacyjna {
+    private:
+        vector<Uzytkownik*> uzytkownicy;
+        vector<Kurs> kursy;
+
     public:
         void zarzadzanieUzytkownikami();
 };
@@ -33,9 +46,9 @@ class Postep {
     private:
         int id_kursu;
         double procent_ukonczenia;
+        void aktualizujPostep();
     
     public:
-        void aktualizujPostep();
         bool sprawdzCzyOdblokowanoModul();
         bool sprawdzCzyOdblokowanoCeryfikat();
 };
@@ -44,6 +57,7 @@ class Kurs {
     private:
         int id;
         string nazwa;
+        vector<Modul> moduly;
     
     public:
         void wygenerujCertyfikat();
@@ -54,6 +68,7 @@ class Modul {
         int id;
         int numer;
         bool czy_odblokowany; // zmienna
+        vector<Lekcja> lekcje;
 };
 
 class Lekcja {
