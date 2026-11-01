@@ -25,28 +25,33 @@ Do każdego Kursu Kursant zapisuje się samodzielnie i przechodzi przez lekcje w
 
 Po ukończeniu wszystkich modułów w danym kursie Kursant otrzymuje certfikat ukończenia tego kursu.
 
-## User stories
 
 ## User stories
 
-1. Jako Kursant chcę przeglądać listę dostępnych Kursów na platformie, aby wybrać interesujący mnie temat nauki.
+1. Jako Użytkownik (Kursant lub Wykładowca) chcę zalogować się do platformy poprzez wybór swojej roli, aby uzyskać dostęp do przeznaczonych dla mnie funkcji systemu.
 
-2. Jako Kursant chcę samodzielnie zapisać się na wybrany Kurs, aby uzyskać dostęp do jego materiałów.
+2. Jako Kursant chcę przeglądać listę dostępnych Kursów na platformie, aby wybrać interesujący mnie temat nauki.
 
-3. Jako Kursant chcę widzieć na oknie startowym listę moich Kursów, aktualny Postęp w każdym z nich oraz zdobyte certyfikaty, aby kontrolować stan swojej nauki.
+3. Jako Kursant chcę samodzielnie zapisać się na wybrany Kurs, aby uzyskać dostęp do jego materiałów.
 
-4. Jako Kursant chcę realizować Lekcje w odpowiedniej kolejności i oznaczać je jako ukończone, aby systematycznie przyswajać wiedzę i odblokowywać kolejne Moduły.
+4. Jako Kursant chcę widzieć na oknie startowym listę moich Kursów, aktualny Postęp w każdym z nich oraz zdobyte certyfikaty, aby kontrolować stan swojej nauki.
 
-5. Jako Kursant chcę mieć zablokowany dostęp do kolejnego Modułu do czasu ukończenia poprzedniego, aby przechodzić przez materiał zgodnie z założoną strukturą Kursu.
+5. Jako Kursant chcę realizować Lekcje w odpowiedniej kolejności i oznaczać je jako ukończone, aby systematycznie przyswajać wiedzę i aktualizować swój Postęp.
 
-6. Jako Kursant chcę otrzymać certyfikat po ukończeniu wszystkich Modułów w Kursie, aby mieć potwierdzenie zdobytych kwalifikacji.
+6. Jako Kursant chcę mieć zablokowany dostęp do kolejnego Modułu do czasu ukończenia poprzedniego, aby przechodzić przez materiał zgodnie z założoną strukturą Kursu.
 
-7. Jako Wykładowca chcę utworzyć nowy Kurs, aby udostępnić Kursantom nową ścieżkę kształcenia.
+7. Jako Kursant chcę otrzymać certyfikat po ukończeniu wszystkich Modułów w Kursie, aby mieć potwierdzenie zdobytych kwalifikacji.
 
-8. Jako Wykładowca chcę zarządzać zawartością Kursu (dodawać Moduły oraz Lekcje), aby rozbudowywać materiały dydakt
-yczne.
-9. Jako Wykładowca chcę wyświetlić listę Kursantów zapisanych na dany Kurs, aby weryfikować frekwencję i zainteresowanie zajęciami.
+8. Jako Wykładowca chcę utworzyć nowy Kurs, aby udostępnić Kursantom nową ścieżkę kształcenia.
+
+9. Jako Wykładowca chcę zarządzać zawartością Kursu (dodawać Moduły oraz Lekcje), aby rozbudowywać materiały dydaktyczne.
+
+10. Jako Wykładowca chcę wyświetlić listę Kursantów zapisanych na dany Kurs, aby weryfikować frekwencję i zainteresowanie zajęciami.
 
 ## Diagram klas
 
 ![Diagram klas.jpg](Diagram%20klas.jpg)
+
+## Diagram przypadków użycia
+
+![Diagram przypadków użycia.jpg](Diagram%20przypadków%20użycia.jpg)
