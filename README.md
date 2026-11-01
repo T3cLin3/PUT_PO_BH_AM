@@ -27,19 +27,25 @@ Po ukończeniu wszystkich modułów w danym kursie Kursant otrzymuje certfikat u
 
 ## User stories
 
-1. Jako Kursant chcę zapisać się na Kurs, aby móc się uczyć.
+## User stories
 
-2. Jako Kursant chcę otrzymać certyfikat, aby mieć potwierdzenie, że ukończyłem Kurs.
+1. Jako Kursant chcę przeglądać listę dostępnych Kursów na platformie, aby wybrać interesujący mnie temat nauki.
 
-3. Jako Wykładowca chcę utworzyć Kurs, aby Kursanci mogli się uczyć.
+2. Jako Kursant chcę samodzielnie zapisać się na wybrany Kurs, aby uzyskać dostęp do jego materiałów.
 
-4. Jako Wykładowca chcę mieć możliwość sprawdzić listę zapisanych Kursantów, aby wiedzieć czy wszyscy się zapisali.
+3. Jako Kursant chcę widzieć na oknie startowym listę moich Kursów, aktualny Postęp w każdym z nich oraz zdobyte certyfikaty, aby kontrolować stan swojej nauki.
 
-5. Jako Wykładowca chcę edytować Kursy, aby móc dodawać i usuwać Moduły oraz Lekcje.
+4. Jako Kursant chcę realizować Lekcje w odpowiedniej kolejności i oznaczać je jako ukończone, aby systematycznie przyswajać wiedzę i odblokowywać kolejne Moduły.
 
-6. Jako System, chcę śledzić Postęp nauki Kursanta, aby weryfikować stan zaawansowania.
+5. Jako Kursant chcę mieć zablokowany dostęp do kolejnego Modułu do czasu ukończenia poprzedniego, aby przechodzić przez materiał zgodnie z założoną strukturą Kursu.
 
-7. Jako System, chcę blokować Kursantowi dostęp do kolejnego Modułu przed zakończeniem kolejnego, aby wymusić systematyczną naukę.
+6. Jako Kursant chcę otrzymać certyfikat po ukończeniu wszystkich Modułów w Kursie, aby mieć potwierdzenie zdobytych kwalifikacji.
+
+7. Jako Wykładowca chcę utworzyć nowy Kurs, aby udostępnić Kursantom nową ścieżkę kształcenia.
+
+8. Jako Wykładowca chcę zarządzać zawartością Kursu (dodawać Moduły oraz Lekcje), aby rozbudowywać materiały dydakt
+yczne.
+9. Jako Wykładowca chcę wyświetlić listę Kursantów zapisanych na dany Kurs, aby weryfikować frekwencję i zainteresowanie zajęciami.
 
 ## Diagram klas
 
