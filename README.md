@@ -165,6 +165,6 @@ Diagram przedstawia dynamiczny scenariusz realizacji pojedynczej lekcji przez ku
 1. **Inicjacja i ukończenie lekcji:** Kursant wywołuje metodę `oznaczJakoUkonczona()` skierowaną do obiektu `Lekcja`. Obiekt ustawia atrybut `czy_ukonczona` na wartość prawdziwą i zwraca do kursanta komunikat zwrotny `czy_ukonczona : bool (true)`.
 2. **Aktualizacja i weryfikacja postępu:** Kursant wywołuje metodę `aktualizujPostep()` na obiekcie `Postęp`, która przelicza aktualny procent ukończenia kursu, a następnie wywołuje metodę `sprawdzCzyOdblokowanoCertyfikat()`, przechodząc do weryfikacji warunku w bloku kombinowanym `alt`.
 3. **Ścieżka główna (`[Certyfikat odblokowany]`):** Jeżeli po zaktualizowaniu postępu wszystkie moduły w kursie zostały ukończone, obiekt `Postęp` wywołuje metodę `wygenerujCertyfikat()` na obiekcie `Kurs`. Po wygenerowaniu certyfikatu obiekt `Kurs` zwraca do `Postęp` flagę `potwierdzenie : bool (true)`, a `Postęp` przekazuje końcowy wynik `potwierdzenie : bool (true)` z powrotem do aktora `Kursant`.
-
+   
 
 ![Diagram sekwencji.jpg](Diagram%20sekwencji.jpg)
