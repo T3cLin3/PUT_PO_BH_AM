@@ -2,10 +2,12 @@
 #include <string>
 
 class Uzytkownik {
-private:
+protected:
     std::string imie;
     std::string nazwisko;
     int id;
 public:
     virtual ~Uzytkownik() = 0;
+    int getId() { return id; }
+    std::string getImie() { return imie; }
 };

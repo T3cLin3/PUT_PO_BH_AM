@@ -9,6 +9,11 @@ private:
     std::vector<Kurs*> zapisaneKursy;
     std::vector<Postep> postepy;
 public:
+    Kursant(int id_k, std::string i, std::string n){
+        id = id_k;
+        imie = i;
+        nazwisko = n;
+    }
     void zapisNaKurs();
     void wyswietlDostepneKursy();
     void wyswietlPostepy();
