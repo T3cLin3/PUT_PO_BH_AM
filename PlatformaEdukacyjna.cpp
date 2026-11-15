@@ -85,7 +85,7 @@ void PlatformaEdukacyjna::zarzadzanieUzytkownikami() {
         cin >> wybor;
 
         switch(wybor) {
-            case 1: w->utworzKurs(); break;
+            case 1: w->utworzKurs(listaKursow); break;
             case 2: w->dodajModul(); break;
             case 3: w->dodajLekcje(); break;
             case 4: w->wyswietlKursantow(); break;

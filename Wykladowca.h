@@ -1,5 +1,7 @@
 #pragma once
+#include <vector>
 #include "Uzytkownik.h"
+#include "Kurs.h"
 
 class Wykladowca : public Uzytkownik {
 public:
@@ -8,7 +10,7 @@ public:
         imie = i;
         nazwisko = n;
     }
-    void utworzKurs();
+    void utworzKurs(std::vector<Kurs*>&listaKursow);
     void dodajModul();
     void dodajLekcje();
     void wyswietlKursantow();
