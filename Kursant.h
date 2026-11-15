@@ -14,7 +14,7 @@ public:
         imie = i;
         nazwisko = n;
     }
-    void zapisNaKurs();
+    void zapisNaKurs(std::vector<Kurs*>& listaKursow);
     void wyswietlDostepneKursy(std::vector<Kurs*>& listaKursow);
     void wyswietlPostepy();
     void odbierzCertyfikat();

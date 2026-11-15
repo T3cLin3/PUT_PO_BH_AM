@@ -65,7 +65,7 @@ void PlatformaEdukacyjna::zarzadzanieUzytkownikami() {
 
         switch (wybor) {
             case 1: k->wyswietlDostepneKursy(listaKursow); break;
-            case 2: k->zapisNaKurs(); break;
+            case 2: k->zapisNaKurs(listaKursow); break;
             case 3: k->wyswietlPostepy(); break;
             case 4: k->odbierzCertyfikat(); break;
             case 0: wyloguj(); break;
