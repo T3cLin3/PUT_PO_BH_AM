@@ -15,7 +15,7 @@ public:
         nazwisko = n;
     }
     void zapisNaKurs();
-    void wyswietlDostepneKursy();
+    void wyswietlDostepneKursy(std::vector<Kurs*>& listaKursow);
     void wyswietlPostepy();
     void odbierzCertyfikat();
     std::vector<Kurs*>& getZapisaneKursy() { return zapisaneKursy; }
