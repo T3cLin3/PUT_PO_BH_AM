@@ -40,31 +40,57 @@ void PlatformaEdukacyjna::wyloguj() {
 }
 
 void PlatformaEdukacyjna::uruchom() {
-    bool dziala = true;
-    while (dziala) {
-        if (zalogowanyUzytkownik == nullptr) {
-            zaloguj(); // Blokuje w konsoli, dopóki się nie zalogujesz
-        } else {
-            // Tymczasowe, proste menu po zalogowaniu
-            cout << "\nWitaj, " << zalogowanyUzytkownik->getImie() << "!\n";
-            cout << "1. Wyloguj\n";
-            cout << "0. Wyjdz z programu\n";
-            cout << "Wybierz akcje: ";
-            
-            int wybor;
-            cin >> wybor;
-            
-            if (wybor == 1) {
-                wyloguj();
-            } else if (wybor == 0) {
-                dziala = false;
-            } else {
-                cout << "Nieznana opcja.\n";
-            }
-        }
+    while (true) {
+        zarzadzanieUzytkownikami();
     }
 }
 
 void PlatformaEdukacyjna::zarzadzanieUzytkownikami() {
-    cout << "Zarzadzanie uzytkownikami platformy." << endl;
+    if (zalogowanyUzytkownik == nullptr) {
+        zaloguj();
+        return;
+    }
+
+    if (kursant* k = dynamic_cast<Kursant*>(zalogowanyUzytkownik)) {
+        cout << "\n--- PANEL KURSANTA: " << k->getImie() << " ---\n";
+        cout << "1. Wyswietl dostepne kursy\n";
+        cout << "2. Zapisz sie na kurs\n";
+        cout << "3. Wyswietl postepy\n";
+        cout << "4. Odbierz certyfikat\n";
+        cout << "0. Wyloguj\n";
+        cout << "Wybierz akcje: ";
+
+        int wybor;
+        cin >> wybor;
+
+        switch (wybor) {
+            case 1: k->wyswietlDostepneKursy(); break;
+            case 2: k->zapiszNaKurs(); break;
+            case 3: k->wyswietlPostepy(); break;
+            case 4: k->odbierzCertyfikat(); break;
+            case 0: wyloguj(); break;
+            default: cout << "Nieznana opcja.\n"; break;
+        }
+    }
+    else if (Wykladowca* w = dynamic_cast<Wykladowca*>(zalogowanyUzytkownik)) {
+        cout << "\n--- PANEL WYKLADOWCY: " << w->getImie() << " ---\n";
+        cout << "1. Utworz kurs\n";
+        cout << "2. Dodaj modul\n";
+        cout << "3. Dodaj lekcje\n";
+        cout << "4. Wyswietl kursantow\n";
+        cout << "0. Wyloguj\n";
+        cout << "Wybierz akcje: ";
+
+        int wybor;
+        cin >> wybor;
+
+        switch(wybor) {
+            case 1: w->utworzKurs(); break;
+            case 2: w->dodajModul(); break;
+            case 3: w->dodajLekcje(); break;
+            case 4: wyswietlKursantow(); break;
+            case 0 : wyloguj(); break;
+            default: cout << "Nieznana opcja. \n"; break;
+        }
+    }
 }
