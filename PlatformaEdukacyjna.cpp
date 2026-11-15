@@ -88,7 +88,7 @@ void PlatformaEdukacyjna::zarzadzanieUzytkownikami() {
             case 1: w->utworzKurs(listaKursow); break;
             case 2: w->dodajModul(listaKursow); break;
             case 3: w->dodajLekcje(listaKursow); break;
-            case 4: w->wyswietlKursantow(); break;
+            case 4: w->wyswietlKursantow(listaKursantow); break;
             case 0 : wyloguj(); break;
             default: cout << "Nieznana opcja. \n"; break;
         }

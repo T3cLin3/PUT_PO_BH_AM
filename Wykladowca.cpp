@@ -64,4 +64,25 @@ void Wykladowca::dodajLekcje(std::vector<Kurs*>& listaKursow) {
     }
     std::cout << "Nie znaleziono kursu o podanym ID \n";
 }
-void Wykladowca::wyswietlKursantow() {}
+void Wykladowca::wyswietlKursantow(std::vector<Kursant*>& listaKursantow) {
+    int idKursu;
+    std::cout << "Podaj ID kursu, aby wyswietlic zapisanych kursantow: ";
+    std::cin >> idKursu;
+
+    std::cout << "Kursanci zapisani na kurs o ID " <<idKursu << ":\n";
+    bool znaleziono = false;
+
+    for (auto kursant : listaKursantow) {
+        for (auto kurs : kursant->getZapisaneKursy()) {
+            if (kurs->getId() == idKursu) {
+                std::cout << "- ID: " << kursant->getId() << ", "
+                          << kursant->getImie() << " " << kursant->getNazwisko() << std::endl;
+                znaleziono = true; 
+            }
+        }
+    }
+
+    if (!znaleziono) {
+        std::cout << "Brak kursantow zapisanych na ten kurs. \n";
+    }
+}

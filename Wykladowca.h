@@ -2,6 +2,7 @@
 #include <vector>
 #include "Uzytkownik.h"
 #include "Kurs.h"
+#include "Kursant.h"
 
 class Wykladowca : public Uzytkownik {
 public:
@@ -13,5 +14,5 @@ public:
     void utworzKurs(std::vector<Kurs*>&listaKursow);
     void dodajModul(std::vector<Kurs*>&listaKursow);
     void dodajLekcje(std::vector<Kurs*>& listaKursow);
-    void wyswietlKursantow();
+    void wyswietlKursantow(std::vector<Kursant*>& listaKursantow);
 };

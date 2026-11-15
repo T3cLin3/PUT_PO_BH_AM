@@ -18,4 +18,5 @@ public:
     void wyswietlDostepneKursy();
     void wyswietlPostepy();
     void odbierzCertyfikat();
+    std::vector<Kurs*>& getZapisaneKursy() { return zapisaneKursy; }
 };

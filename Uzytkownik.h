@@ -10,4 +10,5 @@ public:
     virtual ~Uzytkownik() = 0;
     int getId() { return id; }
     std::string getImie() { return imie; }
+    std::string getNazwisko() { return nazwisko; }
 };
