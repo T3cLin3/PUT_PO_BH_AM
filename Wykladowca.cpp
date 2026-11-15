@@ -34,5 +34,34 @@ void Wykladowca::dodajModul(std::vector<Kurs*>&listaKursow) {
     }
     std::cout << "Nie znaleziono kursu o podanym ID. \n";
 }
-void Wykladowca::dodajLekcje() {}
+void Wykladowca::dodajLekcje(std::vector<Kurs*>& listaKursow) {
+    int idKursu, idModulu , idLekcji;
+    std::string tematLekcji;
+
+    std::cout << "Podaj ID kursu: ";
+    std::cin >> idKursu;
+
+    for (auto kurs: listaKursow) {
+        if (kurs->getId() == idKursu) {
+            std::cout << "Podaj ID modulu: ";
+            std::cin >> idModulu;
+
+            for (auto& modul : kurs->getModuly()) {
+                if (modul.getId() == idModulu) {
+                    std::cout << "Podaj ID nowej lekcji: ";
+                    std::cin  >> idLekcji;
+                    std::cout << "Podaj temat lekcji: ";
+                    std::getline(std::cin >> std::ws, tematLekcji);
+
+                    modul.dodajLekcje(Lekcja(idLekcji,tematLekcji));
+                    std::cout << "Dodano lekcje [" << tematLekcji << "] do modulu nr " << modul.getNumer() <<std::endl;
+                    return;
+                }
+            }
+            std::cout << "Nie znaleziono modulu o podanym ID \n";
+            return;
+        }
+    }
+    std::cout << "Nie znaleziono kursu o podanym ID \n";
+}
 void Wykladowca::wyswietlKursantow() {}

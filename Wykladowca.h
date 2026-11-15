@@ -12,6 +12,6 @@ public:
     }
     void utworzKurs(std::vector<Kurs*>&listaKursow);
     void dodajModul(std::vector<Kurs*>&listaKursow);
-    void dodajLekcje();
+    void dodajLekcje(std::vector<Kurs*>& listaKursow);
     void wyswietlKursantow();
 };
