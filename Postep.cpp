@@ -2,7 +2,21 @@
 #include <iostream>
 
 void Postep::aktualizujPostep() {
-    std::cout << "Postep zostal zaktualizowany." << std::endl;
+    int wszystkie = 0;
+    int ukonczone = 0;
+
+    for (auto& modul : kurs->getModuly()) {
+        for (auto& lekcja : modul.getListaLekcji()) {
+            wszystkie++;
+            if (lekcja.getCzyUkonczona()) {
+                ukonczone++;
+            }
+        }
+    }
+
+    if (wszystkie > 0) {
+        procent_ukonczenia = (ukonczone * 100.0) /wszystkie;
+    }
 }
 
 bool Postep::sprawdzCzyOdblokowanoModul() {
@@ -10,5 +24,5 @@ bool Postep::sprawdzCzyOdblokowanoModul() {
 }
 
 bool Postep::sprawdzCzyOdblokowanoCertyfikat() {
-    return false;
+    return procent_ukonczenia >= 100.0;
 }
