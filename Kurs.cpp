@@ -2,5 +2,7 @@
 #include <iostream>
 
 void Kurs::wygenerujCertyfikat() {
-    std::cout << "Certyfikat za kurs zostal wygenerowany!" << std::endl;
+    std::cout << "\n****************************************\n";
+    std::cout << " CERTYFIKAT UKONCZENIA KURSU: " << nazwa << "\n";
+    std::cout << "****************************************\n";
 }
