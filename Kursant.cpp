@@ -65,5 +65,32 @@ void Kursant::wyswietlPostepy() {
             }
         }
     }
+    int idKursu, idLekcji;
+    std::cout << "\nPodaj ID kursu, w ktorym chcesz zrealizowac lekcje (0 - powrot): ";
+    std::cin >> idKursu;
+    if (idKursu == 0) return;
+
+    for (size_t i = 0; i < zapisaneKursy.size(); i++) {
+        if (zapisaneKursy[i]->getId() == idKursu) {
+            std::cout << "Podaj ID lekcji do ukonczenia: ";
+            std::cin >> idLekcji;
+
+            for (auto& modul : zapisaneKursy[i]->getModuly()) {
+                if (modul.getCzyOdblokowany()) {
+                    for (auto& lekcja : modul.getListaLekcji()) {
+                        if (lekcja.getId() == idLekcji) {
+                            lekcja.oznaczJakoUkonczona();
+                            postepy[i].aktualizujPostep();
+                            postepy[i].sprawdzCzyOdblokowanoModul();
+                            return;
+                        }
+                    }
+                }
+            }
+            std::cout << "Nie znaleziono takiej lekcji w odblokowanych modulach.\n";
+            return;
+        }
+    }
+    std::cout << "Nie jestes zapisany na kurs o podanym ID.\n";
 }
 void Kursant::odbierzCertyfikat() {}
