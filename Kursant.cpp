@@ -33,5 +33,37 @@ void Kursant::wyswietlDostepneKursy(std::vector<Kurs*>& listaKursow) {
         std::cout << "- ID: " << kurs->getId() << " | Nazwa: " << kurs->getNazwa() << std::endl;
     }
 }
-void Kursant::wyswietlPostepy() {}
+void Kursant::wyswietlPostepy() {
+    if (zapisaneKursy.empty()) {
+        std::cout << "Nie jestes zapisany na zaden kurs.\n";
+        return;
+    }
+    std::cout << "\n--- TWOJE KURSY I POSTEPY ---\n";
+    for (size_t i = 0; i < zapisaneKursy.size();i++) {
+        Kurs* k = zapisaneKursy[i];
+        Postep& p = postepy[i];
+
+        std::cout << "Kurs ID: " << k->getId() << " | " << k->getNazwa()
+                  << " | Postep: " << p.getProcentUkonczenia() << "%";
+        if (p.sprawdzCzyOdblokowanoCertyfikat()) {
+            std::cout << "[CERTYFIKAT DOSTEPNY]";
+        }
+        std::cout << "\n";
+
+        for (auto& modul : k->getModuly()) {
+            std::cout<< " Modul nr " << modul.getNumer() << " (ID: " << modul.getId() << ") - ";
+            if (!modul.getCzyOdblokowany()) {
+                std::cout << "[ZABLOKOWANY]\n";
+            }
+            else {
+                std::cout << "[ODBLOKOWANY]\n";
+                for (auto& lekcja : modul.getListaLekcji()) {
+                    std::cout << "    -> Lekcja ID: " << lekcja.getId()
+                              << " | Temat: " << lekcja.getTemat()
+                              << " | Status: " << (lekcja.getCzyUkonczona() ? "Ukonczona" : "Nieukonczona") << "\n";
+                }
+            }
+        }
+    }
+}
 void Kursant::odbierzCertyfikat() {}
