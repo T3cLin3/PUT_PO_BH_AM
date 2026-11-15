@@ -11,6 +11,7 @@ private:
     std::vector<Kurs*> listaKursow;
 
     Uzytkownik* zalogowanyUzytkownik = nullptr; //wskaźnik na bieżącą sesję
+    bool czyDziala = true;
 public:
     PlatformaEdukacyjna();  //konstruktor do wgrania danych testowych
     void uruchom();        //główna pętla konsoli

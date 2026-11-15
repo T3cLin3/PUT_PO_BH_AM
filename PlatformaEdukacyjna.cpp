@@ -12,8 +12,14 @@ PlatformaEdukacyjna::PlatformaEdukacyjna() {
 void PlatformaEdukacyjna::zaloguj() {
     int podaneId;
     cout << "\n--- PLATFORMA E-LEARNINGOWA ---\n";
-    cout << "Podaj swoje ID (testowe ID: 1, 2, 99): ";
+    cout << "Podaj swoje ID (testowe ID: 1, 2, 99, 0 - Wyjscie z programu): ";
     cin >> podaneId;
+
+    if (podaneId == 0) {
+        czyDziala = false;
+        cout << "Zamykanie Platformy Edukacyjnej...\n";
+        return;
+    }
 
     //przeszukiwanie wektora kursantów
     for (auto kursant : listaKursantow) {
@@ -40,7 +46,7 @@ void PlatformaEdukacyjna::wyloguj() {
 }
 
 void PlatformaEdukacyjna::uruchom() {
-    while (true) {
+    while (czyDziala) {
         zarzadzanieUzytkownikami();
     }
 }

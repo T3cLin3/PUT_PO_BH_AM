@@ -7,7 +7,7 @@ void Wykladowca::utworzKurs(std::vector<Kurs*>& listaKursow) {
 
     std::cout << "Podaj ID nowego kursu: ";
     std::cin >> idKursu;
-    std::cout << "Podaj  nazwe kursu: ";
+    std::cout << "Podaj nazwe kursu: ";
     std::getline(std::cin >> std::ws,nazwaKursu);
 
     Kurs* nowyKurs = new Kurs(idKursu,nazwaKursu);
