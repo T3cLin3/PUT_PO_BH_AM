@@ -51,7 +51,7 @@ void PlatformaEdukacyjna::zarzadzanieUzytkownikami() {
         return;
     }
 
-    if (kursant* k = dynamic_cast<Kursant*>(zalogowanyUzytkownik)) {
+    if (Kursant* k = dynamic_cast<Kursant*>(zalogowanyUzytkownik)) {
         cout << "\n--- PANEL KURSANTA: " << k->getImie() << " ---\n";
         cout << "1. Wyswietl dostepne kursy\n";
         cout << "2. Zapisz sie na kurs\n";
@@ -65,7 +65,7 @@ void PlatformaEdukacyjna::zarzadzanieUzytkownikami() {
 
         switch (wybor) {
             case 1: k->wyswietlDostepneKursy(); break;
-            case 2: k->zapiszNaKurs(); break;
+            case 2: k->zapisNaKurs(); break;
             case 3: k->wyswietlPostepy(); break;
             case 4: k->odbierzCertyfikat(); break;
             case 0: wyloguj(); break;
@@ -88,7 +88,7 @@ void PlatformaEdukacyjna::zarzadzanieUzytkownikami() {
             case 1: w->utworzKurs(); break;
             case 2: w->dodajModul(); break;
             case 3: w->dodajLekcje(); break;
-            case 4: wyswietlKursantow(); break;
+            case 4: w->wyswietlKursantow(); break;
             case 0 : wyloguj(); break;
             default: cout << "Nieznana opcja. \n"; break;
         }
