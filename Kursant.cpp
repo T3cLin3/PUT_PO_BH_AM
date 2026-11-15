@@ -93,4 +93,27 @@ void Kursant::wyswietlPostepy() {
     }
     std::cout << "Nie jestes zapisany na kurs o podanym ID.\n";
 }
-void Kursant::odbierzCertyfikat() {}
+void Kursant::odbierzCertyfikat() {
+    if (zapisaneKursy.empty()) {
+        std::cout << "Nie jestes zapisany na zaden kurs.\n";
+        return;
+    }
+
+    int idKursu;
+    std::cout << "Podaj ID kursu, dla ktorego chcesz odebrac certyfikat: ";
+    std::cin >> idKursu;
+
+    for (size_t i = 0; i < zapisaneKursy.size(); i++) {
+        if (zapisaneKursy[i]->getId() == idKursu) {
+            if (postepy[i].sprawdzCzyOdblokowanoCertyfikat()) {
+                zapisaneKursy[i]->wygenerujCertyfikat();
+            } else {
+                std::cout << "Nie ukonczyles jeszcze tego kursu w 100% (Twoj postep: "
+                          << postepy[i].getProcentUkonczenia() << "%).\n";
+            }
+            return;
+        }
+    }
+
+    std::cout << "Nie jestes zapisany na kurs o podanym ID.\n";
+}
