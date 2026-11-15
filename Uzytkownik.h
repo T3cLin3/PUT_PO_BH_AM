@@ -7,7 +7,7 @@ protected:
     std::string nazwisko;
     int id;
 public:
-    virtual ~Uzytkownik() = 0;
+    virtual ~Uzytkownik() = default;
     int getId() { return id; }
     std::string getImie() { return imie; }
     std::string getNazwisko() { return nazwisko; }

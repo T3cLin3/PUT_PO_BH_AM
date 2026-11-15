@@ -14,6 +14,7 @@ private:
     bool czyDziala = true;
 public:
     PlatformaEdukacyjna();  //konstruktor do wgrania danych testowych
+    ~PlatformaEdukacyjna();
     void uruchom();        //główna pętla konsoli
     void zaloguj();
     void wyloguj();

@@ -9,6 +9,18 @@ PlatformaEdukacyjna::PlatformaEdukacyjna() {
     listaWykladowcow.push_back(new Wykladowca(99, "Anna", "Nowak"));
 }
 
+PlatformaEdukacyjna::~PlatformaEdukacyjna() {
+    for (auto kursant : listaKursantow) {
+        delete kursant;
+    }
+    for (auto wykladowca : listaWykladowcow) {
+        delete wykladowca;
+    }
+    for (auto kurs : listaKursow) {
+        delete kurs;
+    }
+}
+
 void PlatformaEdukacyjna::zaloguj() {
     int podaneId;
     cout << "\n--- PLATFORMA E-LEARNINGOWA ---\n";
