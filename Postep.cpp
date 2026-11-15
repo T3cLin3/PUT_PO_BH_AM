@@ -20,6 +20,23 @@ void Postep::aktualizujPostep() {
 }
 
 bool Postep::sprawdzCzyOdblokowanoModul() {
+    auto& moduly = kurs->getModuly();
+    for (size_t i = 0; i +1 < moduly.size();i++) {
+        if (moduly[i].getCzyOdblokowany() && !moduly[i+1].getCzyOdblokowany()) {
+            bool wszystkieUkonczone = true;
+            for (auto& lekcja : moduly[i].getListaLekcji()) {
+                if (!lekcja.getCzyUkonczona()) {
+                    wszystkieUkonczone = false;
+                    break;
+                }
+            }
+            if (wszystkieUkonczone && !moduly[i].getListaLekcji().empty()) {
+                moduly[i+1].setCzyOdblokowany(true);
+                std::cout << "Odblokowano kolejny moduł (nr " << moduly[i+1].getNumer() << ")!" << std::endl;
+                return true;
+            }
+        }
+    }
     return false;
 }
 
