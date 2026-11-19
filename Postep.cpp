@@ -32,7 +32,7 @@ bool Postep::sprawdzCzyOdblokowanoModul() {
             }
             if (wszystkieUkonczone && !moduly[i].getListaLekcji().empty()) {
                 moduly[i+1].setCzyOdblokowany(true);
-                std::cout << "Odblokowano kolejny moduł (nr " << moduly[i+1].getNumer() << ")!" << std::endl;
+                std::cout << "Odblokowano kolejny modul (nr " << moduly[i+1].getNumer() << ")!" << std::endl;
                 return true;
             }
         }

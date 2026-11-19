@@ -16,8 +16,8 @@ class Kurs{
         int getId() {return id;}
         std::string getNazwa() {return nazwa;}
 
-        void dodajModul(Modul nowyModul) {
-            moduly.push_back(nowyModul);
+        void dodajModul(const Modul& nowyModul) {
+        moduly.push_back(nowyModul);
         }
         std::vector<Modul>& getModuly() {return moduly;}
         void wygenerujCertyfikat();

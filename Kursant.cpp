@@ -28,7 +28,7 @@ void Kursant::wyswietlDostepneKursy(std::vector<Kurs*>& listaKursow) {
         return;
     }
 
-    std::cout << "Dostępne kursy na platformie:\n";
+    std::cout << "Dostepne kursy na platformie:\n";
     for (auto kurs : listaKursow) {
         std::cout << "- ID: " << kurs->getId() << " | Nazwa: " << kurs->getNazwa() << std::endl;
     }
@@ -39,14 +39,16 @@ void Kursant::wyswietlPostepy() {
         return;
     }
     std::cout << "\n--- TWOJE KURSY I POSTEPY ---\n";
-    for (size_t i = 0; i < zapisaneKursy.size();i++) {
+    for (size_t i = 0; i < zapisaneKursy.size(); i++) {
         Kurs* k = zapisaneKursy[i];
         Postep& p = postepy[i];
+        p.aktualizujPostep();
+        p.sprawdzCzyOdblokowanoModul();
 
         std::cout << "Kurs ID: " << k->getId() << " | " << k->getNazwa()
                   << " | Postep: " << p.getProcentUkonczenia() << "%";
         if (p.sprawdzCzyOdblokowanoCertyfikat()) {
-            std::cout << "[CERTYFIKAT DOSTEPNY]";
+            std::cout << " [CERTYFIKAT DOSTEPNY]";
         }
         std::cout << "\n";
 
@@ -105,6 +107,7 @@ void Kursant::odbierzCertyfikat() {
 
     for (size_t i = 0; i < zapisaneKursy.size(); i++) {
         if (zapisaneKursy[i]->getId() == idKursu) {
+            postepy[i].aktualizujPostep();
             if (postepy[i].sprawdzCzyOdblokowanoCertyfikat()) {
                 zapisaneKursy[i]->wygenerujCertyfikat();
             } else {

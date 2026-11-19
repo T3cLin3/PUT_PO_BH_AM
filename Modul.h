@@ -14,12 +14,12 @@ public:
         numer = nr;
         czy_odblokowany = odblokowany;
     }
-    int getId() {return id;};
+    int getId() {return id;}
     int getNumer() {return numer;}
     bool getCzyOdblokowany() {return czy_odblokowany;}
     void setCzyOdblokowany(bool stan) {czy_odblokowany = stan;}
 
-    void dodajLekcje(Lekcja nowaLekcja) {
+void dodajLekcje(const Lekcja& nowaLekcja) {
         listaLekcji.push_back(nowaLekcja);
     }
     std::vector<Lekcja>& getListaLekcji() {return listaLekcji;}

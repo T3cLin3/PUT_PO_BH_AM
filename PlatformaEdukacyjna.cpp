@@ -9,7 +9,7 @@ PlatformaEdukacyjna::PlatformaEdukacyjna() {
     listaKursantow.push_back(new Kursant(2, "Piotr", "Zalewski"));
     listaWykladowcow.push_back(new Wykladowca(99, "Anna", "Nowak"));
 
-    Kurs* kursCpp = new Kurs(1, "Podstawy C++ dla programistów Pythona"); //utworzenie pierwszego kursu - dane startowe
+    Kurs* kursCpp = new Kurs(1, "Podstawy C++ dla programistow Pythona"); //utworzenie pierwszego kursu - dane startowe
 
     Modul modul1(1, 1 , true); //dodanie pierwszego modułu do pierwszego kursu, true bo automatycznie odblokowany
     modul1.dodajLekcje(Lekcja(1, "Skladnia i zmienne"));
