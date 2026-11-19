@@ -15,6 +15,8 @@ private:
 public:
     PlatformaEdukacyjna();  //konstruktor do wgrania danych testowych
     ~PlatformaEdukacyjna();
+    PlatformaEdukacyjna(const PlatformaEdukacyjna&) = delete;
+    PlatformaEdukacyjna& operator=(const PlatformaEdukacyjna&) = delete;
     void uruchom();        //główna pętla konsoli
     void zaloguj();
     void wyloguj();
