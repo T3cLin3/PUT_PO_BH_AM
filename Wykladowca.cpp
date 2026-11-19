@@ -7,15 +7,28 @@ void Wykladowca::utworzKurs(std::vector<Kurs*>& listaKursow) {
 
     std::cout << "Podaj ID nowego kursu: ";
     std::cin >> idKursu;
-    std::cout << "Podaj nazwe kursu: ";
-    std::getline(std::cin >> std::ws,nazwaKursu);
 
-    Kurs* nowyKurs = new Kurs(idKursu,nazwaKursu);
+    if (idKursu <= 0) {
+        std::cout << "ID kursu musi byc liczba dodatnia!\n";
+        return;
+    }
+
+    for (auto kurs : listaKursow) {
+        if (kurs->getId() == idKursu) {
+            std::cout << "Kurs o takim ID juz istnieje!\n";
+            return;
+        }
+    }
+
+    std::cout << "Podaj nazwe kursu: ";
+    std::getline(std::cin >> std::ws, nazwaKursu);
+
+    Kurs* nowyKurs = new Kurs(idKursu, nazwaKursu);
     listaKursow.push_back(nowyKurs);
-    std::cout << "Pomyślnie utworzono kurs: " << nazwaKursu << std::endl;
+    std::cout << "Pomyslnie utworzono kurs: " << nazwaKursu << std::endl;
 }
-void Wykladowca::dodajModul(std::vector<Kurs*>&listaKursow) {
-    int idKursu , idModulu, numerModulu;
+void Wykladowca::dodajModul(std::vector<Kurs*>& listaKursow) {
+    int idKursu, idModulu, numerModulu;
     std::cout << "Podaj ID kursu, do ktorego chcesz dodac modul: ";
     std::cin >> idKursu;
 
@@ -23,25 +36,33 @@ void Wykladowca::dodajModul(std::vector<Kurs*>&listaKursow) {
         if (kurs->getId() == idKursu) {
             std::cout << "Podaj ID nowego modulu: ";
             std::cin >> idModulu;
+
+            for (auto& m : kurs->getModuly()) {
+                if (m.getId() == idModulu) {
+                    std::cout << "Modul o takim ID juz istnieje w tym kursie!\n";
+                    return;
+                }
+            }
+
             std::cout << "Podaj numer kolejny modulu: ";
             std::cin >> numerModulu;
 
             bool odblokowany = kurs->getModuly().empty();
-            kurs->dodajModul(Modul(idModulu, numerModulu , odblokowany));
-            std::cout << "Dodano modul nr " << numerModulu << " do kursu " <<kurs->getNazwa() << std::endl;
+            kurs->dodajModul(Modul(idModulu, numerModulu, odblokowany));
+            std::cout << "Dodano modul nr " << numerModulu << " do kursu " << kurs->getNazwa() << std::endl;
             return;
         }
     }
-    std::cout << "Nie znaleziono kursu o podanym ID. \n";
+    std::cout << "Nie znaleziono kursu o podanym ID.\n";
 }
 void Wykladowca::dodajLekcje(std::vector<Kurs*>& listaKursow) {
-    int idKursu, idModulu , idLekcji;
+    int idKursu, idModulu, idLekcji;
     std::string tematLekcji;
 
     std::cout << "Podaj ID kursu: ";
     std::cin >> idKursu;
 
-    for (auto kurs: listaKursow) {
+    for (auto kurs : listaKursow) {
         if (kurs->getId() == idKursu) {
             std::cout << "Podaj ID modulu: ";
             std::cin >> idModulu;
@@ -49,20 +70,30 @@ void Wykladowca::dodajLekcje(std::vector<Kurs*>& listaKursow) {
             for (auto& modul : kurs->getModuly()) {
                 if (modul.getId() == idModulu) {
                     std::cout << "Podaj ID nowej lekcji: ";
-                    std::cin  >> idLekcji;
+                    std::cin >> idLekcji;
+
+                    for (auto& m : kurs->getModuly()) {
+                        for (auto& l : m.getListaLekcji()) {
+                            if (l.getId() == idLekcji) {
+                                std::cout << "Lekcja o takim ID juz istnieje w tym kursie!\n";
+                                return;
+                            }
+                        }
+                    }
+
                     std::cout << "Podaj temat lekcji: ";
                     std::getline(std::cin >> std::ws, tematLekcji);
 
-                    modul.dodajLekcje(Lekcja(idLekcji,tematLekcji));
-                    std::cout << "Dodano lekcje [" << tematLekcji << "] do modulu nr " << modul.getNumer() <<std::endl;
+                    modul.dodajLekcje(Lekcja(idLekcji, tematLekcji));
+                    std::cout << "Dodano lekcje [" << tematLekcji << "] do modulu nr " << modul.getNumer() << std::endl;
                     return;
                 }
             }
-            std::cout << "Nie znaleziono modulu o podanym ID \n";
+            std::cout << "Nie znaleziono modulu o podanym ID.\n";
             return;
         }
     }
-    std::cout << "Nie znaleziono kursu o podanym ID \n";
+    std::cout << "Nie znaleziono kursu o podanym ID.\n";
 }
 void Wykladowca::wyswietlKursantow(std::vector<Kursant*>& listaKursantow) {
     int idKursu;

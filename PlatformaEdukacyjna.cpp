@@ -1,5 +1,6 @@
 #include "PlatformaEdukacyjna.h"
 #include <iostream>
+#include <limits>
 using namespace std;
 
 //konstruktor - ładujemy testowych użytkowników na sztywno, żeby mieć na czym testować
@@ -39,7 +40,12 @@ void PlatformaEdukacyjna::zaloguj() {
     int podaneId;
     cout << "\n--- PLATFORMA E-LEARNINGOWA ---\n";
     cout << "Podaj swoje ID (testowe ID: 1, 2, 99, 0 - Wyjscie z programu): ";
-    cin >> podaneId;
+    if (!(cin >> podaneId)) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Blad: podaj poprawna liczbe!\n";
+        return;
+    }
 
     if (podaneId == 0) {
         czyDziala = false;
@@ -93,7 +99,12 @@ void PlatformaEdukacyjna::zarzadzanieUzytkownikami() {
         cout << "Wybierz akcje: ";
 
         int wybor;
-        cin >> wybor;
+        if (!(cin >> wybor)) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Blad: podaj poprawna liczbe!\n";
+            return;
+        }
 
         switch (wybor) {
             case 1: k->wyswietlDostepneKursy(listaKursow); break;
