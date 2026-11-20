@@ -4,10 +4,10 @@
 
 class Modul {
 private:
-    int id;
-    int numer;
+    int id;     //numer id w systemie
+    int numer;  //numer wyświetlany kursantowi (każdy kurs może mieć moduł 1, 2 itp)
     bool czy_odblokowany;
-    std::vector<Lekcja> listaLekcji;
+    std::vector<Lekcja> listaLekcji;    //lekcje należą do tego modułu
 public:
     Modul(int id_m , int nr,bool odblokowany) {
         id = id_m;

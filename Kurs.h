@@ -7,7 +7,7 @@ class Kurs{
     private:
         int id;
         std::string nazwa;
-        std::vector<Modul> moduly;
+        std::vector<Modul> moduly;  //moduły należą wyłącznie do tego kursu
     public:
         Kurs(int id_k,std::string n) {
             id = id_k;
@@ -19,6 +19,6 @@ class Kurs{
         void dodajModul(const Modul& nowyModul) {
         moduly.push_back(nowyModul);
         }
-        std::vector<Modul>& getModuly() {return moduly;}
+        std::vector<Modul>& getModuly() {return moduly;}    //referencja żeby modyfikować oryginał a nie kopię
         void wygenerujCertyfikat();
 };

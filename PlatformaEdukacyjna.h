@@ -10,8 +10,8 @@ private:
     std::vector<Wykladowca*> listaWykladowcow;
     std::vector<Kurs*> listaKursow;
 
-    Uzytkownik* zalogowanyUzytkownik = nullptr; //wskaźnik na bieżącą sesję
-    bool czyDziala = true;
+    Uzytkownik* zalogowanyUzytkownik = nullptr; //wskaźnik sesji (nullptr - nikt nie jest zalogowany)
+    bool czyDziala = true;  //flaga sterująca główną pętlą programu
 public:
     PlatformaEdukacyjna();  //konstruktor do wgrania danych testowych
     ~PlatformaEdukacyjna();

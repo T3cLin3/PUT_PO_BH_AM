@@ -5,7 +5,7 @@ class Postep {
 private:
     int id_kursu;
     double procent_ukonczenia;
-    Kurs* kurs;
+    Kurs* kurs;     //wskaźnik bo Postep nie jest właścicielem kursu (nie tworzy, nie usuwa), wskaźnik żeby widział zmiany w oryginale
     
 public:
     Postep(int id_k, Kurs* k) {

@@ -81,9 +81,9 @@ void Kursant::wyswietlPostepy() {
                 if (modul.getCzyOdblokowany()) {
                     for (auto& lekcja : modul.getListaLekcji()) {
                         if (lekcja.getId() == idLekcji) {
-                            lekcja.oznaczJakoUkonczona();
-                            postepy[i].aktualizujPostep();
-                            postepy[i].sprawdzCzyOdblokowanoModul();
+                            lekcja.oznaczJakoUkonczona();       //realizacja US 3
+                            postepy[i].aktualizujPostep();      //relacja <<include>>
+                            postepy[i].sprawdzCzyOdblokowanoModul();    //relacja <<extend> i US 4
                             return;
                         }
                     }

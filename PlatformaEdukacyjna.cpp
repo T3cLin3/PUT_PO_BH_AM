@@ -56,7 +56,7 @@ void PlatformaEdukacyjna::zaloguj() {
     //przeszukiwanie wektora kursantów
     for (auto kursant : listaKursantow) {
         if (kursant->getId() == podaneId) {
-            zalogowanyUzytkownik = kursant; //przypisanie polimorficzne
+            zalogowanyUzytkownik = kursant; //przypisanie polimorficzne (wskaźnik Uzytkownik* wskazuje na Kursant*)
             return;
         }
     }
@@ -64,7 +64,7 @@ void PlatformaEdukacyjna::zaloguj() {
     //przeszukujemy wektora wykładowców
     for (auto wykladowca : listaWykladowcow) {
         if (wykladowca->getId() == podaneId) {
-            zalogowanyUzytkownik = wykladowca;
+            zalogowanyUzytkownik = wykladowca;  //przypisanie polimorficzne (wskaźnik Uzytkownik* wskazuje na Wykladowca*)
             return;
         }
     }
@@ -89,11 +89,11 @@ void PlatformaEdukacyjna::zarzadzanieUzytkownikami() {
         return;
     }
 
-    if (Kursant* k = dynamic_cast<Kursant*>(zalogowanyUzytkownik)) {
+    if (Kursant* k = dynamic_cast<Kursant*>(zalogowanyUzytkownik)) {    //bezpieczne rzutowanie w dół (isinstance w pythonie)
         cout << "\n--- PANEL KURSANTA: " << k->getImie() << " ---\n";
         cout << "1. Wyswietl dostepne kursy\n";
         cout << "2. Zapisz sie na kurs\n";
-        cout << "3. Wyswietl postepy\n";
+        cout << "3. Wyswietl postepy i realizuj lekcje\n";
         cout << "4. Odbierz certyfikat\n";
         cout << "0. Wyloguj\n";
         cout << "Wybierz akcje: ";
@@ -115,7 +115,7 @@ void PlatformaEdukacyjna::zarzadzanieUzytkownikami() {
             default: cout << "Nieznana opcja.\n"; break;
         }
     }
-    else if (Wykladowca* w = dynamic_cast<Wykladowca*>(zalogowanyUzytkownik)) {
+    else if (Wykladowca* w = dynamic_cast<Wykladowca*>(zalogowanyUzytkownik)) {     //bezpieczne rzutowanie w dół (isinstance w pythonie)
         cout << "\n--- PANEL WYKLADOWCY: " << w->getImie() << " ---\n";
         cout << "1. Utworz kurs\n";
         cout << "2. Dodaj modul\n";
