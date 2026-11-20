@@ -8,6 +8,6 @@ int main() {
     platforma.uruchom();
     return 0;
 }
-
-// ctrl + shift + b
-// .\main.exe
+// w WSL (jakieś ograniczenia windowsa blokują normalne uruchomienie)
+// cd "/mnt/d/Users/asass/Desktop/Programowanie - sem3/Laby - po/PUT_PO_BH_AM"
+// g++ *.cpp -o main && ./main
