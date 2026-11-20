@@ -54,7 +54,7 @@ void Kursant::wyswietlPostepy() {
 
         for (auto& modul : k->getModuly()) {
             std::cout<< " Modul nr " << modul.getNumer() << " (ID: " << modul.getId() << ") - ";
-            if (!modul.getCzyOdblokowany()) {
+            if (!p.czyModulOdblokowany(modul.getId())) {
                 std::cout << "[ZABLOKOWANY]\n";
             }
             else {
@@ -62,7 +62,7 @@ void Kursant::wyswietlPostepy() {
                 for (auto& lekcja : modul.getListaLekcji()) {
                     std::cout << "    -> Lekcja ID: " << lekcja.getId()
                               << " | Temat: " << lekcja.getTemat()
-                              << " | Status: " << (lekcja.getCzyUkonczona() ? "Ukonczona" : "Nieukonczona") << "\n";
+                              << " | Status: " << (p.czyLekcjaUkonczona(lekcja.getId()) ? "Ukonczona" : "Nieukonczona") << "\n";
                 }
             }
         }
@@ -78,10 +78,11 @@ void Kursant::wyswietlPostepy() {
             std::cin >> idLekcji;
 
             for (auto& modul : zapisaneKursy[i]->getModuly()) {
-                if (modul.getCzyOdblokowany()) {
+                if (postepy[i].czyModulOdblokowany(modul.getId())) {
                     for (auto& lekcja : modul.getListaLekcji()) {
                         if (lekcja.getId() == idLekcji) {
-                            lekcja.oznaczJakoUkonczona();       //realizacja US 3
+                            postepy[i].oznaczLekcjeJakoUkonczona(idLekcji);
+                            std::cout << "Lekcja [" << lekcja.getTemat() << "] zostala ukonczona!\n";
                             postepy[i].aktualizujPostep();      //relacja <<include>>
                             postepy[i].sprawdzCzyOdblokowanoModul();    //relacja <<extend> i US 4
                             return;
